@@ -5,14 +5,6 @@ import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Menu, X } from 'lucide-react';
-import localFont from 'next/font/local';
-
-// Load the BANKGOTHIC BT MEDIUM font
-const bankGothic = localFont({ 
-  src: '../../fonts/BANKGOTHIC_MEDIUM_BT.ttf',
-  variable: '--font-bankgothic',
-  display: 'swap'
-});
 
 const navigation = [
   { name: 'Home', href: '/' },
@@ -32,13 +24,13 @@ export default function Header() {
             <Link href="/" className="flex items-center">
               <span className="sr-only">Wing Logistics</span>
               <Image
-              src="/images/logo.png"
-              alt="Wing Logistics"
-              width={200}
-              height={80}
-              priority
-              style={{ height: "60px", width: "auto" }}
-            />
+                src="/images/logo.png"
+                alt="Wing Logistics"
+                width={200}
+                height={80}
+                priority
+                className="w-auto h-[60px]"
+              />
             </Link>
           </div>
           

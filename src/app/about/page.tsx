@@ -1,9 +1,8 @@
 // src/app/about/page.tsx
-import Image from 'next/image';
 import { CheckCircle, Users, Trophy, Building } from 'lucide-react';
 
 const stats = [
-  { name: 'Years of Experience', value: '27+' },
+  { name: 'Years of Experience', value: '5+' },
   { name: 'Successful Deliveries', value: '10K+' },
   { name: 'Cities Covered', value: '100+' },
   { name: 'Satisfied Clients', value: '500+' },

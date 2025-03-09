@@ -1,7 +1,6 @@
 // src/app/contact/page.tsx
 'use client';
 
-import { useState } from 'react';
 import { Phone, Mail, MapPin, MessageSquare } from 'lucide-react';
 import ContactForm from '@/components/sections/ContactForm';
 
@@ -16,7 +15,7 @@ export default function ContactPage() {
               Contact Us
             </h1>
             <p className="mt-6 text-lg leading-8 text-gray-600">
-              Get in touch with our team for all your logistics needs. We're here to help you find the
+              Get in touch with our team for all your logistics needs. We&apos;re here to help you find the
               best transportation solution.
             </p>
           </div>

@@ -31,7 +31,8 @@ export default function ContactForm() {
         service: 'general',
         message: '',
       });
-    } catch (error) {
+    } catch (_) {
+      // Using underscore to ignore the error variable
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
@@ -167,7 +168,7 @@ export default function ContactForm() {
 
       {submitStatus === 'success' && (
         <div className="mt-4 text-sm text-green-600">
-          Thank you for your message. We'll get back to you soon!
+          Thank you for your message. We&apos;ll get back to you soon!
         </div>
       )}
 
