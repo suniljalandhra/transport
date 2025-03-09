@@ -26,7 +26,7 @@ export default function Header() {
                   src="/images/logo.png"
                   alt="Wing Logistics"
                   width={150}
-                  height={40}
+                  height={150}
                   className="h-10 w-auto"
                 />
               </Link>
