@@ -1,0 +1,6 @@
+# robots.txt for winggroup.org
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://winggroup.org/sitemap.xml
