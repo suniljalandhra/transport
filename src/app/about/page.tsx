@@ -2,7 +2,7 @@
 import { CheckCircle, Users, Trophy, Building } from 'lucide-react';
 
 const stats = [
-  { name: 'Years of Experience', value: '5+' },
+  { name: 'Years of Experience', value: '25+' },
   { name: 'Successful Deliveries', value: '10K+' },
   { name: 'Cities Covered', value: '100+' },
   { name: 'Satisfied Clients', value: '500+' },
