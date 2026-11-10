@@ -3,6 +3,8 @@ import Hero from '@/components/sections/Hero';
 import ServicesOverview from '@/components/sections/ServicesOverview'
 import WhyChooseUs from '@/components/sections/WhyChooseUs';
 import CallToAction from '@/components/sections/CallToAction';
+import StatsBar from '@/components/sections/StatsBar';
+import Process from '@/components/sections/Process';
 import { Metadata } from 'next';
 import HomePageSchema from '@/components/schema/HomePageSchema';
 
@@ -19,8 +21,10 @@ export default function Home() {
     <>
       <HomePageSchema />
       <Hero />
+      <StatsBar />
       <ServicesOverview />
       <WhyChooseUs />
+      <Process />
       <CallToAction />
     </>
   );

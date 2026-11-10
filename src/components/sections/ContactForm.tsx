@@ -48,15 +48,15 @@ export default function ContactForm() {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
-      <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
+      <div className="grid grid-cols-1 gap-x-6 gap-y-6 sm:grid-cols-2">
         <div>
           <label
             htmlFor="name"
-            className="block text-sm font-semibold leading-6 text-gray-900"
+            className="block text-sm font-semibold leading-6 text-navy"
           >
             Name
           </label>
-          <div className="mt-2.5">
+          <div className="mt-2">
             <input
               type="text"
               name="name"
@@ -65,7 +65,7 @@ export default function ContactForm() {
               required
               value={formData.name}
               onChange={handleChange}
-              className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6"
+              className="block w-full rounded-xl border-0 bg-surface px-4 py-3 text-ink ring-1 ring-inset ring-slate-200 transition placeholder:text-ink-subtle/70 focus:bg-white focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6"
             />
           </div>
         </div>
@@ -73,11 +73,11 @@ export default function ContactForm() {
         <div>
           <label
             htmlFor="email"
-            className="block text-sm font-semibold leading-6 text-gray-900"
+            className="block text-sm font-semibold leading-6 text-navy"
           >
             Email
           </label>
-          <div className="mt-2.5">
+          <div className="mt-2">
             <input
               type="email"
               name="email"
@@ -86,7 +86,7 @@ export default function ContactForm() {
               required
               value={formData.email}
               onChange={handleChange}
-              className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6"
+              className="block w-full rounded-xl border-0 bg-surface px-4 py-3 text-ink ring-1 ring-inset ring-slate-200 transition placeholder:text-ink-subtle/70 focus:bg-white focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6"
             />
           </div>
         </div>
@@ -94,11 +94,11 @@ export default function ContactForm() {
         <div>
           <label
             htmlFor="phone"
-            className="block text-sm font-semibold leading-6 text-gray-900"
+            className="block text-sm font-semibold leading-6 text-navy"
           >
             Phone number
           </label>
-          <div className="mt-2.5">
+          <div className="mt-2">
             <input
               type="tel"
               name="phone"
@@ -107,7 +107,7 @@ export default function ContactForm() {
               required
               value={formData.phone}
               onChange={handleChange}
-              className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6"
+              className="block w-full rounded-xl border-0 bg-surface px-4 py-3 text-ink ring-1 ring-inset ring-slate-200 transition placeholder:text-ink-subtle/70 focus:bg-white focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6"
             />
           </div>
         </div>
@@ -115,17 +115,17 @@ export default function ContactForm() {
         <div>
           <label
             htmlFor="service"
-            className="block text-sm font-semibold leading-6 text-gray-900"
+            className="block text-sm font-semibold leading-6 text-navy"
           >
             Service Interested In
           </label>
-          <div className="mt-2.5">
+          <div className="mt-2">
             <select
               name="service"
               id="service"
               value={formData.service}
               onChange={handleChange}
-              className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6"
+              className="block w-full rounded-xl border-0 bg-surface px-4 py-3 text-ink ring-1 ring-inset ring-slate-200 transition placeholder:text-ink-subtle/70 focus:bg-white focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6"
             >
               <option value="general">General Inquiry</option>
               <option value="roadways">Road Transportation</option>
@@ -139,11 +139,11 @@ export default function ContactForm() {
       <div>
         <label
           htmlFor="message"
-          className="block text-sm font-semibold leading-6 text-gray-900"
+          className="block text-sm font-semibold leading-6 text-navy"
         >
           Message
         </label>
-        <div className="mt-2.5">
+        <div className="mt-2">
           <textarea
             name="message"
             id="message"
@@ -151,29 +151,29 @@ export default function ContactForm() {
             required
             value={formData.message}
             onChange={handleChange}
-            className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6"
+            className="block w-full rounded-xl border-0 bg-surface px-4 py-3 text-ink ring-1 ring-inset ring-slate-200 transition placeholder:text-ink-subtle/70 focus:bg-white focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6"
           />
         </div>
       </div>
 
-      <div className="mt-10">
+      <div className="pt-2">
         <button
           type="submit"
           disabled={isSubmitting}
-          className="block w-full rounded-md bg-primary px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-primary-dark focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+          className="btn-primary w-full py-3.5 text-base disabled:cursor-not-allowed disabled:opacity-60"
         >
           {isSubmitting ? 'Sending...' : 'Send Message'}
         </button>
       </div>
 
       {submitStatus === 'success' && (
-        <div className="mt-4 text-sm text-green-600">
+        <div role="status" className="rounded-xl bg-emerald-50 px-4 py-3 text-sm font-medium text-emerald-700">
           Thank you for your message. We&apos;ll get back to you soon!
         </div>
       )}
 
       {submitStatus === 'error' && (
-        <div className="mt-4 text-sm text-red-600">
+        <div role="alert" className="rounded-xl bg-red-50 px-4 py-3 text-sm font-medium text-red-700">
           There was an error sending your message. Please try again.
         </div>
       )}

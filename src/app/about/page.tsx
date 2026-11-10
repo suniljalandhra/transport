@@ -1,12 +1,17 @@
 // src/app/about/page.tsx
-import { CheckCircle, Users, Trophy, Building } from 'lucide-react';
+import Image from 'next/image';
+import type { Metadata } from 'next';
+import { Building, CheckCircle, Trophy, Users } from 'lucide-react';
+import PageHero from '@/components/sections/PageHero';
+import StatsBar from '@/components/sections/StatsBar';
+import CallToAction from '@/components/sections/CallToAction';
 
-const stats = [
-  { name: 'Years of Experience', value: '25+' },
-  { name: 'Successful Deliveries', value: '10K+' },
-  { name: 'Cities Covered', value: '100+' },
-  { name: 'Satisfied Clients', value: '500+' },
-];
+export const metadata: Metadata = {
+  title: 'About Us',
+  description:
+    'Wing Logistics is a New Delhi based transportation and logistics company with 25+ years of experience delivering cargo across India by road, air and rail.',
+  alternates: { canonical: '/about' },
+};
 
 const values = [
   {
@@ -33,73 +38,69 @@ const values = [
 
 export default function AboutPage() {
   return (
-    <div className="bg-white">
-      {/* Hero section */}
-      <div className="relative isolate overflow-hidden bg-gradient-to-b from-primary/20">
-        <div className="mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8">
-          <div className="mx-auto max-w-2xl text-center">
-            <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
-              About Wing Logistics
-            </h1>
-            <p className="mt-6 text-lg leading-8 text-gray-600">
-              Your trusted partner in logistics, delivering excellence across India through innovative transportation solutions.
-            </p>
+    <>
+      <PageHero
+        eyebrow="About Us"
+        title="About Wing Logistics"
+        description="Your trusted partner in logistics, delivering excellence across India through innovative transportation solutions."
+        image="/images/operations-hub.jpg"
+        align="center"
+      >
+        <div className="h-4" />
+      </PageHero>
+      <StatsBar />
+
+      <section className="section grid grid-cols-1 items-center gap-12 py-20 sm:py-28 lg:grid-cols-2 lg:gap-16">
+        <div className="relative">
+          <div className="absolute -inset-4 -z-10 rounded-[2rem] bg-primary/10 blur-2xl" aria-hidden="true" />
+          <div className="relative aspect-[4/3] overflow-hidden rounded-3xl shadow-card-hover ring-1 ring-slate-200/80">
+            <Image
+              src="/images/operations-hub.jpg"
+              alt="Logistics operations and warehouse floor"
+              fill
+              sizes="(min-width: 1024px) 50vw, 100vw"
+              className="object-cover"
+            />
           </div>
         </div>
-      </div>
-
-      {/* Stats section */}
-      <div className="mx-auto mt-8 max-w-7xl px-6 lg:px-8">
-        <dl className="grid grid-cols-1 gap-x-8 gap-y-16 text-center lg:grid-cols-4">
-          {stats.map((stat) => (
-            <div key={stat.name} className="mx-auto flex max-w-xs flex-col gap-y-4">
-              <dt className="text-base leading-7 text-gray-600">{stat.name}</dt>
-              <dd className="order-first text-3xl font-semibold tracking-tight text-gray-900 sm:text-5xl">
-                {stat.value}
-              </dd>
-            </div>
-          ))}
-        </dl>
-      </div>
-
-      {/* Company overview */}
-      <div className="mx-auto max-w-7xl px-6 py-16 sm:py-24 lg:px-8">
-        <div className="mx-auto max-w-2xl lg:text-center">
-          <h2 className="text-base font-semibold leading-7 text-primary">Our Story</h2>
-          <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+        <div>
+          <p className="eyebrow">Our Story</p>
+          <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-navy sm:text-4xl">
             Building Trust Through Excellence
+          </h2>
+          <p className="mt-6 text-lg leading-8 text-ink-muted">
+            Wing Logistics has been at the forefront of transportation and logistics services, providing comprehensive
+            solutions for businesses across India. Our journey began with a simple mission: to deliver reliable and
+            efficient logistics services that help businesses grow.
           </p>
-          <p className="mt-6 text-lg leading-8 text-gray-600">
-            Wing Logistics has been at the forefront of transportation and logistics services, 
-            providing comprehensive solutions for businesses across India. Our journey began with 
-            a simple mission: to deliver reliable and efficient logistics services that help 
-            businesses grow.
+          <p className="mt-4 text-lg leading-8 text-ink-muted">
+            From our base in New Delhi, we move cargo by road, air and rail — for domestic routes and international
+            shipments alike.
           </p>
         </div>
-      </div>
+      </section>
 
-      {/* Values section */}
-      <div className="mx-auto max-w-7xl px-6 py-16 sm:py-24 lg:px-8">
-        <div className="mx-auto max-w-2xl lg:text-center">
-          <h2 className="text-base font-semibold leading-7 text-primary">Our Values</h2>
-          <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-            What Drives Us
-          </p>
-        </div>
-        <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
-          <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-4">
+      <section className="bg-surface-low py-20 sm:py-28">
+        <div className="section">
+          <div className="mx-auto max-w-2xl text-center">
+            <p className="eyebrow">Our Values</p>
+            <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-navy sm:text-4xl">What Drives Us</h2>
+          </div>
+          <dl className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {values.map((value) => (
-              <div key={value.name} className="flex flex-col items-center text-center">
-                <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-lg bg-primary/10">
-                  <value.icon className="h-8 w-8 text-primary" aria-hidden="true" />
+              <div key={value.name} className="card-interactive p-7">
+                <div className="icon-badge">
+                  <value.icon className="h-5 w-5" aria-hidden="true" />
                 </div>
-                <dt className="text-base font-semibold leading-7 text-gray-900">{value.name}</dt>
-                <dd className="mt-1 text-base leading-7 text-gray-600">{value.description}</dd>
+                <dt className="mt-5 text-lg font-bold text-navy">{value.name}</dt>
+                <dd className="mt-2 text-sm leading-6 text-ink-muted">{value.description}</dd>
               </div>
             ))}
           </dl>
         </div>
-      </div>
-    </div>
+      </section>
+
+      <CallToAction />
+    </>
   );
 }

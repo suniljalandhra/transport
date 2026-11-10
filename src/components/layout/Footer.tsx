@@ -1,115 +1,90 @@
-// src/components/layout/Footer.tsx
 import Link from 'next/link';
-import Image from 'next/image';
-import { Phone, Mail, MapPin } from 'lucide-react';
-import localFont from 'next/font/local';
-
-// Load the BANKGOTHIC BT MEDIUM font
-const bankGothic = localFont({ 
-  src: '../../fonts/BANKGOTHIC_MEDIUM_BT.ttf',
-  variable: '--font-bankgothic',
-  display: 'swap'
-});
-
-const navigation = {
-  main: [
-    { name: 'Home', href: '/' },
-    { name: 'Services', href: '/services' },
-    { name: 'About', href: '/about' },
-    { name: 'Contact', href: '/contact' },
-  ],
-  services: [
-    { name: 'Roadways Transport', href: '/services#roadways' },
-    { name: 'Airways Freight', href: '/services#airways' },
-    { name: 'Railways Logistics', href: '/services#railways' },
-    { name: 'International Shipping', href: '/services#international' },
-  ],
-};
+import { Clock, Mail, MapPin, Phone } from 'lucide-react';
+import Logo from './Logo';
+import { mainNav, serviceNav, site } from '@/lib/site';
 
 export default function Footer() {
   return (
-    <footer className="bg-white" aria-labelledby="footer-heading">
+    <footer className="bg-navy-deep text-slate-300" aria-labelledby="footer-heading">
       <h2 id="footer-heading" className="sr-only">
         Footer
       </h2>
-      <div className="mx-auto max-w-7xl px-6 pb-8 pt-16 sm:pt-24 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {/* Company info section */}
-          <div className="flex flex-col items-center text-center">
-            <div className="mb-8">
-              {/* Using fixed sizes with Tailwind classes instead of style prop */}
-              <Image
-                src="/images/logo.png"
-                alt="Wing Logistics"
-                width={240}
-                height={150}
-                priority
-                className="w-auto h-auto max-w-[200px]"
-              />
-            </div>
-            <div className="mb-6">
-              <span className={`text-2xl ${bankGothic.className}`}>
-                <span className="text-primary">WING</span> LOGISTICS
-              </span>
-            </div>
-            <p className="text-sm leading-6 text-gray-600 mb-6">
-              Your trusted partner in transportation and logistics solutions across India and beyond.
+      <div className="section pb-10 pt-16 sm:pt-20">
+        <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-12">
+          <div className="lg:col-span-4">
+            <Logo variant="dark" />
+            <p className="mt-6 max-w-sm text-sm leading-6 text-slate-400">
+              Your trusted partner in transportation and logistics solutions across India and beyond — by road, air
+              and rail.
             </p>
-            <div className="space-y-3 text-left">
-              <p className="flex items-center text-sm text-gray-600">
-                <MapPin className="mr-2 h-5 w-5 text-primary" />
-                ED-9 New Ashok Nagar Street No-21 New Delhi -110096
-              </p>
-              <p className="flex items-center text-sm text-gray-600">
-                <Phone className="mr-2 h-5 w-5 text-primary" />
-                <a href="tel:9971981827">+91 9971981827</a>
-              </p>
-              <p className="flex items-center text-sm text-gray-600">
-                <Mail className="mr-2 h-5 w-5 text-primary" />
-                <a href="mailto:logistics@winggroup.org">logistics@winggroup.org</a>
-              </p>
-            </div>
           </div>
 
-          {/* Operating Hours */}
-          <div className="text-center lg:text-left">
-            <h3 className="text-sm font-semibold leading-6 text-gray-900 mb-6">Operating Hours</h3>
-            <p className="text-sm text-gray-600">Monday - Saturday: 9:00 AM - 7:00 PM</p>
-            <p className="text-sm text-gray-600">Sunday: Closed</p>
+          <div className="lg:col-span-2">
+            <h3 className="text-sm font-semibold text-white">Quick Links</h3>
+            <ul role="list" className="mt-5 space-y-3">
+              {mainNav.map((item) => (
+                <li key={item.name}>
+                  <Link href={item.href} className="text-sm text-slate-400 transition-colors hover:text-primary">
+                    {item.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
 
-          {/* Navigation and Services */}
-          <div className="grid grid-cols-2 gap-8">
-            <div className="text-center lg:text-left">
-              <h3 className="text-sm font-semibold leading-6 text-gray-900">Navigation</h3>
-              <ul role="list" className="mt-6 space-y-4">
-                {navigation.main.map((item) => (
-                  <li key={item.name}>
-                    <Link href={item.href} className="text-sm leading-6 text-gray-600 hover:text-primary">
-                      {item.name}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div className="text-center lg:text-left">
-              <h3 className="text-sm font-semibold leading-6 text-gray-900">Services</h3>
-              <ul role="list" className="mt-6 space-y-4">
-                {navigation.services.map((item) => (
-                  <li key={item.name}>
-                    <Link href={item.href} className="text-sm leading-6 text-gray-600 hover:text-primary">
-                      {item.name}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
+          <div className="lg:col-span-2">
+            <h3 className="text-sm font-semibold text-white">Services</h3>
+            <ul role="list" className="mt-5 space-y-3">
+              {serviceNav.map((item) => (
+                <li key={item.name}>
+                  <Link href={item.href} className="text-sm text-slate-400 transition-colors hover:text-primary">
+                    {item.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="lg:col-span-4">
+            <h3 className="text-sm font-semibold text-white">Corporate Office</h3>
+            <ul role="list" className="mt-5 space-y-4 text-sm">
+              <li className="flex gap-3">
+                <MapPin className="mt-0.5 h-5 w-5 flex-none text-primary" aria-hidden="true" />
+                <span>
+                  {site.addressLines[0]}
+                  <br />
+                  {site.addressLines[1]}
+                </span>
+              </li>
+              <li className="flex gap-3">
+                <Phone className="h-5 w-5 flex-none text-primary" aria-hidden="true" />
+                <a href={site.phoneHref} className="hover:text-primary">
+                  {site.phone}
+                </a>
+              </li>
+              <li className="flex gap-3">
+                <Mail className="h-5 w-5 flex-none text-primary" aria-hidden="true" />
+                <a href={`mailto:${site.email}`} className="hover:text-primary">
+                  {site.email}
+                </a>
+              </li>
+              <li className="flex gap-3">
+                <Clock className="mt-0.5 h-5 w-5 flex-none text-primary" aria-hidden="true" />
+                <span>
+                  {site.hours.map((h) => (
+                    <span key={h.days} className="block">
+                      {h.days}: {h.time}
+                    </span>
+                  ))}
+                </span>
+              </li>
+            </ul>
           </div>
         </div>
-        <div className="mt-16 border-t border-gray-900/10 pt-8 sm:mt-20 lg:mt-24 text-center">
-          <p className="text-xs leading-5 text-gray-500">
-            &copy; {new Date().getFullYear()} Wing Logistics. All rights reserved. GSTIN: 07BBMPJ9356G1Z8
-          </p>
+
+        <div className="mt-14 flex flex-col gap-3 border-t border-white/10 pt-8 text-xs text-slate-500 sm:flex-row sm:items-center sm:justify-between">
+          <p>&copy; {new Date().getFullYear()} Wing Logistics. All rights reserved.</p>
+          <p className="font-mono tracking-wide">GSTIN: {site.gstin}</p>
         </div>
       </div>
     </footer>
