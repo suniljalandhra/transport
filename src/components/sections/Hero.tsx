@@ -13,7 +13,7 @@ export default function Hero() {
     <section className="relative isolate overflow-hidden bg-navy-deep">
       <Image
         src="/images/hero-highway.jpg"
-        alt="Cargo trucks on an Indian expressway at dusk"
+        alt="Cargo trucks on an expressway at dusk"
         fill
         priority
         sizes="100vw"
