@@ -1,188 +1,147 @@
 // src/app/services/page.tsx
 import Image from 'next/image';
 import Link from 'next/link';
-import { Truck, Plane, Train, PackageCheck, Clock, Shield } from 'lucide-react';
+import type { Metadata } from 'next';
+import { ArrowRight, CheckCircle2, Clock, PackageCheck, Plane, Shield, Train, Truck } from 'lucide-react';
+import PageHero from '@/components/sections/PageHero';
+import CallToAction from '@/components/sections/CallToAction';
+
+export const metadata: Metadata = {
+  title: 'Services',
+  description:
+    'Road transportation, air freight and rail logistics services across India from Wing Logistics, New Delhi. FTL, part load, express, domestic and international shipping.',
+  alternates: { canonical: '/services' },
+};
 
 const services = [
   {
     id: 'roadways',
     title: 'Road Transportation',
-    description: 'Efficient and reliable road freight services across India',
+    description: 'Efficient and reliable road freight services across India.',
     icon: Truck,
     image: '/images/road-transport.jpg',
+    cta: 'Request a Road Freight Quote',
     features: [
       'Door-to-door delivery',
       'Full truckload (FTL) services',
       'Part load services',
       'Express delivery options',
       'Real-time tracking',
-      'Nationwide coverage'
-    ]
+      'Nationwide coverage',
+    ],
   },
   {
     id: 'airways',
     title: 'Air Freight Services',
-    description: 'Fast and secure air cargo transportation',
+    description: 'Fast and secure air cargo transportation, including international shipping through IGI Airport.',
     icon: Plane,
     image: '/images/air-freight.jpg',
+    cta: 'Book Air Cargo',
     features: [
       'Domestic air freight',
       'International shipping',
       'Express air cargo',
       'Airport-to-airport service',
       'Door-to-airport service',
-      'Temperature-controlled shipping'
-    ]
+      'Temperature-controlled shipping',
+    ],
   },
   {
     id: 'railways',
     title: 'Rail Logistics',
-    description: 'Cost-effective and sustainable rail transportation',
+    description: 'Cost-effective and sustainable rail transportation for large shipments.',
     icon: Train,
     image: '/images/rail-logistics.jpg',
+    cta: 'Plan a Rail Shipment',
     features: [
       'Container rail services',
       'Bulk cargo transport',
       'Multi-modal solutions',
       'Major route coverage',
       'Regular scheduled services',
-      'Loading/unloading assistance'
-    ]
-  }
+      'Loading/unloading assistance',
+    ],
+  },
 ];
 
 const commonFeatures = [
-  {
-    name: 'Secure Handling',
-    description: 'Advanced cargo protection and handling procedures',
-    icon: Shield
-  },
-  {
-    name: 'Time-Critical Services',
-    description: 'Specialized solutions for urgent deliveries',
-    icon: Clock
-  },
-  {
-    name: 'Quality Assurance',
-    description: 'Strict quality control and service standards',
-    icon: PackageCheck
-  }
+  { name: 'Secure Handling', description: 'Advanced cargo protection and handling procedures.', icon: Shield },
+  { name: 'Time-Critical Services', description: 'Specialized solutions for urgent deliveries.', icon: Clock },
+  { name: 'Quality Assurance', description: 'Strict quality control and service standards.', icon: PackageCheck },
 ];
 
 export default function ServicesPage() {
   return (
-    <div className="bg-white">
-      {/* Hero section */}
-      <div className="relative isolate overflow-hidden bg-gradient-to-b from-primary/20">
-        <div className="mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8">
-          <div className="mx-auto max-w-2xl text-center">
-            <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
-              Our Services
-            </h1>
-            <p className="mt-6 text-lg leading-8 text-gray-600">
-              Comprehensive transportation solutions tailored to your needs. Whether by road, air, or rail,
-              we ensure your cargo reaches its destination safely and on time.
-            </p>
+    <>
+      <PageHero
+        eyebrow="Our Services"
+        title="Logistics Solutions Built Around Your Cargo"
+        description="Comprehensive transportation solutions tailored to your needs. Whether by road, air, or rail, we ensure your cargo reaches its destination safely and on time."
+        image="/images/hero-highway.jpg"
+      />
+
+      <section className="section py-20 sm:py-24">
+        <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
+          <div>
+            <p className="eyebrow">Value added</p>
+            <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-navy sm:text-4xl">
+              Everything you need for reliable logistics
+            </h2>
           </div>
+          <p className="max-w-md text-ink-muted">Every shipment, on every mode, comes with the same standards.</p>
         </div>
-      </div>
-
-      {/* Common features section */}
-      <div className="mx-auto max-w-7xl px-6 py-16 sm:py-24 lg:px-8">
-        <div className="mx-auto max-w-2xl lg:text-center">
-          <h2 className="text-base font-semibold leading-7 text-primary">Value Added Services</h2>
-          <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-            Everything you need for reliable logistics
-          </p>
-        </div>
-
-        <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
-          <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-3">
-            {commonFeatures.map((feature) => (
-              <div key={feature.name} className="flex flex-col items-start">
-                <div className="rounded-lg bg-primary/10 p-2">
-                  <feature.icon className="h-6 w-6 text-primary" aria-hidden="true" />
-                </div>
-                <dt className="mt-4 font-semibold text-gray-900">{feature.name}</dt>
-                <dd className="mt-2 leading-7 text-gray-600">{feature.description}</dd>
+        <dl className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-3">
+          {commonFeatures.map((feature) => (
+            <div key={feature.name} className="card-interactive p-7">
+              <div className="icon-badge">
+                <feature.icon className="h-5 w-5" aria-hidden="true" />
               </div>
-            ))}
-          </dl>
-        </div>
-      </div>
+              <dt className="mt-5 text-lg font-bold text-navy">{feature.name}</dt>
+              <dd className="mt-2 text-sm leading-6 text-ink-muted">{feature.description}</dd>
+            </div>
+          ))}
+        </dl>
+      </section>
 
-      {/* Individual services sections */}
-      {services.map((service, serviceIdx) => (
-        <div
-          key={service.id}
-          id={service.id}
-          className={`overflow-hidden ${
-            serviceIdx % 2 === 0 ? 'bg-white' : 'bg-gray-50'
-          } py-24 sm:py-32`}
-        >
-          <div className="mx-auto max-w-7xl px-6 lg:px-8">
-            <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
-              <div className="lg:pr-8 lg:pt-4">
-                <div className="lg:max-w-lg">
-                  <div className="flex items-center">
-                    <service.icon className="h-8 w-8 text-primary" aria-hidden="true" />
-                    <h2 className="ml-4 text-base font-semibold leading-7 text-primary">
-                      {service.title}
-                    </h2>
-                  </div>
-                  <p className="mt-4 text-lg font-semibold text-gray-900">{service.description}</p>
-                  <dl className="mt-10 max-w-xl space-y-8 text-base leading-7 text-gray-600 lg:max-w-none">
-                    {service.features.map((feature) => (
-                      <div key={feature} className="relative pl-9">
-                        <dt className="inline font-semibold text-gray-900">
-                          <div className="absolute left-1 top-1 h-5 w-5 text-primary">
-                            <PackageCheck className="h-4 w-4" />
-                          </div>
-                        </dt>
-                        <dd className="inline">{feature}</dd>
-                      </div>
-                    ))}
-                  </dl>
+      <div className="bg-surface-low">
+        {services.map((service, idx) => (
+          <section key={service.id} id={service.id} className="scroll-mt-24 py-16 sm:py-20">
+            <div className="section grid grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-16">
+              <div className={idx % 2 === 1 ? 'lg:order-2' : ''}>
+                <div className="relative aspect-[4/3] overflow-hidden rounded-3xl bg-white shadow-card-hover ring-1 ring-slate-200/80">
+                  <Image
+                    src={service.image}
+                    alt={service.title}
+                    fill
+                    sizes="(min-width: 1024px) 50vw, 100vw"
+                    className="object-cover"
+                  />
                 </div>
               </div>
-              <div className="relative">
-                <Image
-                  src={service.image}
-                  alt={service.title}
-                  className="w-full rounded-xl shadow-xl ring-1 ring-gray-400/10"
-                  width={2432}
-                  height={1442}
-                />
+              <div>
+                <div className="icon-badge">
+                  <service.icon className="h-5 w-5" aria-hidden="true" />
+                </div>
+                <h2 className="mt-5 text-3xl font-extrabold tracking-tight text-navy">{service.title}</h2>
+                <p className="mt-4 text-lg leading-8 text-ink-muted">{service.description}</p>
+                <ul role="list" className="mt-8 grid grid-cols-1 gap-x-6 gap-y-4 sm:grid-cols-2">
+                  {service.features.map((feature) => (
+                    <li key={feature} className="flex items-start gap-3 text-sm font-medium text-ink">
+                      <CheckCircle2 className="mt-0.5 h-5 w-5 flex-none text-primary" aria-hidden="true" />
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+                <Link href="/contact" className="btn mt-10 bg-navy text-white hover:bg-navy-light focus-visible:outline-navy">
+                  {service.cta} <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                </Link>
               </div>
             </div>
-          </div>
-        </div>
-      ))}
-
-      {/* CTA section */}
-      <div className="bg-primary">
-        <div className="mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:flex lg:items-center lg:justify-between lg:px-8">
-          <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
-            Ready to get started?
-            <br />
-            Get in touch with us today.
-          </h2>
-          <div className="mt-10 flex items-center gap-x-6 lg:mt-0 lg:flex-shrink-0">
-            <Link
-              href="/contact"
-              className="rounded-md bg-white px-3.5 py-2.5 text-sm font-semibold text-primary shadow-sm hover:bg-gray-100"
-            >
-              Contact Us
-            </Link>
-            <a
-              href="tel:9971981827"
-              className="text-sm font-semibold leading-6 text-white"
-            >
-              Call us <span aria-hidden="true">→</span>
-            </a>
-          </div>
-        </div>
+          </section>
+        ))}
       </div>
-    </div>
+
+      <CallToAction title="Ready to get started? Get in touch with us today." primaryLabel="Contact Us" />
+    </>
   );
 }

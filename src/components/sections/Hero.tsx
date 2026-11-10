@@ -1,72 +1,63 @@
-// src/components/sections/Hero.tsx
+import Image from 'next/image';
 import Link from 'next/link';
-import { Truck, Plane, Train } from 'lucide-react';
+import { ArrowRight, Plane, Train, Truck } from 'lucide-react';
+
+const modes = [
+  { name: 'Roadways', icon: Truck },
+  { name: 'Airways', icon: Plane },
+  { name: 'Railways', icon: Train },
+];
 
 export default function Hero() {
   return (
-    <div className="relative bg-white">
-      <div className="mx-auto max-w-7xl">
-        <div className="relative z-10 lg:w-full lg:max-w-2xl">
-          <div className="relative px-6 py-32 sm:py-40 lg:px-8 lg:py-56">
-            <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-xl">
-              <div className="hidden sm:mb-10 sm:flex">
-                <div className="relative rounded-full px-3 py-1 text-sm leading-6 text-gray-500 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
-                  Reliable Logistics Solutions Across India
-                </div>
-              </div>
-              <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
-                Your Trusted Partner in{' '}
-                <span className="text-primary">Transportation</span>
-              </h1>
-              <p className="mt-6 text-lg leading-8 text-gray-600">
-                Comprehensive logistics solutions through roadways, airways, and railways. 
-                Delivering excellence in domestic and international shipping.
-              </p>
-              <div className="mt-10 flex items-center gap-x-6">
-                <Link
-                  href="/contact"
-                  className="rounded-md bg-primary px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-primary-dark focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
-                >
-                  Contact Us
-                </Link>
-                <Link
-                  href="/services"
-                  className="text-sm font-semibold leading-6 text-gray-900"
-                >
-                  Learn more <span aria-hidden="true">→</span>
-                </Link>
-              </div>
-            </div>
+    <section className="relative isolate overflow-hidden bg-navy-deep">
+      <Image
+        src="/images/hero-highway.jpg"
+        alt="Cargo trucks on an expressway at dusk"
+        fill
+        priority
+        sizes="100vw"
+        className="-z-20 object-cover"
+      />
+      <div
+        className="absolute inset-0 -z-10 bg-gradient-to-r from-navy-deep via-navy-deep/85 to-navy-deep/30"
+        aria-hidden="true"
+      />
+      <div className="absolute inset-x-0 bottom-0 -z-10 h-40 bg-gradient-to-t from-navy-deep/80 to-transparent" aria-hidden="true" />
+
+      <div className="section pb-36 pt-20 sm:pb-44 sm:pt-28 lg:pt-32">
+        <div className="max-w-2xl">
+          <span className="eyebrow-chip">
+            <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-primary" aria-hidden="true" />
+            Reliable Logistics Solutions Across India
+          </span>
+          <h1 className="mt-7 text-4xl font-extrabold leading-[1.08] tracking-tight text-white sm:text-6xl">
+            Your Trusted Partner in <span className="text-primary">Transportation</span>
+          </h1>
+          <p className="mt-6 max-w-xl text-lg leading-8 text-slate-300">
+            Comprehensive logistics solutions through roadways, airways, and railways. Delivering excellence in
+            domestic and international shipping.
+          </p>
+          <div className="mt-10 flex flex-wrap items-center gap-4">
+            <Link href="/contact" className="btn-primary">
+              Get a Quote <ArrowRight className="h-4 w-4" aria-hidden="true" />
+            </Link>
+            <Link href="/services" className="btn-ghost-dark">
+              Explore Services
+            </Link>
           </div>
+          <ul className="mt-12 flex flex-wrap gap-x-6 gap-y-3" aria-label="Transport modes">
+            {modes.map((mode) => (
+              <li key={mode.name} className="flex items-center gap-2 text-sm font-medium text-slate-300">
+                <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-white/10 text-primary">
+                  <mode.icon className="h-4 w-4" aria-hidden="true" />
+                </span>
+                {mode.name}
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
-      <div className="bg-gray-50 lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
-        <div className="mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8">
-          <div className="grid grid-cols-1 gap-8 sm:grid-cols-3">
-            <div className="text-center">
-              <div className="mx-auto h-12 w-12 text-primary">
-                <Truck className="h-12 w-12" />
-              </div>
-              <h3 className="mt-4 text-lg font-semibold">Roadways</h3>
-              <p className="mt-2 text-sm text-gray-600">Comprehensive ground transportation</p>
-            </div>
-            <div className="text-center">
-              <div className="mx-auto h-12 w-12 text-primary">
-                <Plane className="h-12 w-12" />
-              </div>
-              <h3 className="mt-4 text-lg font-semibold">Airways</h3>
-              <p className="mt-2 text-sm text-gray-600">International & domestic air freight</p>
-            </div>
-            <div className="text-center">
-              <div className="mx-auto h-12 w-12 text-primary">
-                <Train className="h-12 w-12" />
-              </div>
-              <h3 className="mt-4 text-lg font-semibold">Railways</h3>
-              <p className="mt-2 text-sm text-gray-600">Efficient rail transportation</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    </section>
   );
 }

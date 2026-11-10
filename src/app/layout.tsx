@@ -1,11 +1,9 @@
 // src/app/layout.tsx
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
 import './globals.css';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
-
-const inter = Inter({ subsets: ['latin'] });
+import { inter, jakarta, bankGothic } from '@/lib/fonts';
 
 export const metadata: Metadata = {
   title: {
@@ -69,8 +67,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>
+    <html lang="en" className={`${inter.variable} ${jakarta.variable} ${bankGothic.variable} scroll-smooth`}>
+      <body className="bg-surface font-sans text-ink antialiased">
         <div className="min-h-screen flex flex-col">
           <Header />
           <main className="flex-grow">{children}</main>
